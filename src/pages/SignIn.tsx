@@ -1,44 +1,55 @@
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+
+// Remove this line:
+// import DashboardBackground from "@/assets/Dashboard_background.mp4";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+  const { signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      console.log("Sign in with:", { email, password });
+      signIn({
+        name: email.split("@")[0] || "User",
+        email,
+        avatarUrl: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(email)}`
+      });
+      navigate("/dashboard");
     }, 700);
   };
 
   return (
-    <div className="fixed inset-0 w-full h-full overflow-hidden">
-      {/* Video Background - Fullscreen */}
+    <div className="fixed inset-0 w-screen h-screen flex items-center justify-center">
+      {/* Video Background */}
       <video 
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="fixed inset-0 w-screen h-screen object-cover z-0"
         style={{
           width: '100vw',
           height: '100vh',
           minWidth: '100%',
           minHeight: '100%',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          zIndex: 0
+          objectFit: 'cover',
+          overflow: 'hidden',
+          backgroundColor: 'black'
         }}
-      >
-        {/* Using a neural network video as placeholder since we can't access your video file */}
-        <source src="\src\assets\bckg1.mp4" type="video/mp4" />
-        {/* Fallback background */}
-        <div className="w-full h-full bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900"></div>
-      </video>
+        src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_25fps.mp4"
+      />
       
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
