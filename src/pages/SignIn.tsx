@@ -5,8 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-
-import DashboardImage from "@/assets/dashboard.jpg";
+import DashboardImage from "@/assets/Signin_register.jpg";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -105,9 +104,9 @@ const SignIn = () => {
               
               <p className="text-sm text-gray-600 text-center mt-6">
                 Don't have an account?{" "}
-                <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+                <Link to="/register" className="text-blue-600 hover:text-blue-700 font-medium">
                   Create one
-                </a>
+                </Link>
               </p>
             </div>
           </div>

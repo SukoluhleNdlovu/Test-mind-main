@@ -5,20 +5,29 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/contexts/AuthContext";
 import { UseCases } from "@/components/UseCases";
 
+import DashboardImage from "@/assets/dashboard.jpg";
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   return (
-    <div className="min-h-screen relative">
-      {/* Video Background */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="\src\assets\Dashboard_background.mp4" type="video/mp4" />
-      </video>
+    <div className="fixed inset-0 w-screen h-screen relative">
+      {/* Image Background */}
+      <img
+        src={DashboardImage}
+        alt="Dashboard Background"
+        className="fixed inset-0 w-screen h-screen object-cover z-0"
+        style={{
+          width: '100vw',
+          height: '100vh',
+          minWidth: '100%',
+          minHeight: '100%',
+          objectFit: 'cover',
+          overflow: 'hidden',
+          backgroundColor: 'black',
+          filter: 'blur(16px) brightness(0.7)'
+        }}
+      />
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import DashboardImage from "@/assets/Signin_register.jpg";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -29,16 +30,22 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center px-6 py-24">
-      {/* Video Background */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        className="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="\src\assets\bckg1.mp4" type="video/mp4" />
-      </video>
+    <div className="fixed inset-0 w-screen h-screen flex items-center justify-center">
+      {/* Image Background */}
+      <img
+        src={DashboardImage}
+        alt="Dashboard Background"
+        className="fixed inset-0 w-screen h-screen object-cover z-0"
+        style={{
+          width: '100vw',
+          height: '100vh',
+          minWidth: '100%',
+          minHeight: '100%',
+          objectFit: 'cover',
+          overflow: 'hidden',
+          backgroundColor: 'black'
+        }}
+      />
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
