@@ -17,7 +17,7 @@ const Dashboard = () => {
         muted 
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/src/assets/istockphoto-2206519913-640_adpp_is.mp4" type="video/mp4" />
+        <source src="\src\assets\Dashboard_background.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay */}

@@ -37,7 +37,7 @@ const Register = () => {
         muted 
         className="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="/src/assets/istockphoto-1491463133-640_adpp_is.mp4" type="video/mp4" />
+        <source src="\src\assets\bckg1.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay */}
