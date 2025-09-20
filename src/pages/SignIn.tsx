@@ -42,7 +42,8 @@ const SignIn = () => {
           minHeight: '100%',
           objectFit: 'cover',
           overflow: 'hidden',
-          backgroundColor: 'black'
+          backgroundColor: 'black',
+          filter: 'blur(4px) brightness(0.7)'
         }}
       />
       
