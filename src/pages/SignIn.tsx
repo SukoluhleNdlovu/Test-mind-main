@@ -1,50 +1,47 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "@/contexts/AuthContext";
-import DashboardImage from "@/assets/Signin_register.jpg";
+
+import { useNavigate } from "react-router-dom";
+
+import VideoBackground from "@/assets/istockphoto-1491463133-640_adpp_is.mp4";
+
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
-  const navigate = useNavigate();
-  const { signIn } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      signIn({
-        name: email.split("@")[0] || "User",
-        email,
-        avatarUrl: `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(email)}`
-      });
+      console.log("Sign in with:", { email, password });
       navigate("/dashboard");
     }, 700);
   };
 
   return (
-    <div className="fixed inset-0 w-screen h-screen flex items-center justify-center">
-      {/* Image Background */}
-      <img
-        src={DashboardImage}
-        alt="Dashboard Background"
-        className="fixed inset-0 w-screen h-screen object-cover z-0"
+    <div className="fixed inset-0 w-full h-full overflow-hidden">
+      {/* Video Background - Fullscreen */}
+      <video 
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
         style={{
           width: '100vw',
           height: '100vh',
           minWidth: '100%',
           minHeight: '100%',
-          objectFit: 'cover',
-          overflow: 'hidden',
-          backgroundColor: 'black',
-          filter: 'blur(4px) brightness(0.7)'
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 0
         }}
+        src={VideoBackground}
       />
       
       {/* Dark Overlay */}

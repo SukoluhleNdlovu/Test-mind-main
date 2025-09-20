@@ -6,16 +6,19 @@ import { useAuth } from "@/contexts/AuthContext";
 import { UseCases } from "@/components/UseCases";
 
 import DashboardImage from "@/assets/dashboard.jpg";
+import DashboardVideo from "@/assets/istockphoto-2206519913-640_adpp_is.mp4";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   return (
     <div className="fixed inset-0 w-screen h-screen relative">
-      {/* Image Background */}
-      <img
-        src={DashboardImage}
-        alt="Dashboard Background"
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
         className="fixed inset-0 w-screen h-screen object-cover z-0"
         style={{
           width: '100vw',
@@ -27,6 +30,7 @@ const Dashboard = () => {
           backgroundColor: 'black',
           filter: 'blur(16px) brightness(0.7)'
         }}
+        src={DashboardVideo}
       />
       
       {/* Overlay */}

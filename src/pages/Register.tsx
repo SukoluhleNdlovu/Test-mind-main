@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import VideoBackground from "@/assets/istockphoto-1491463133-640_adpp_is.mp4";
 import DashboardImage from "@/assets/Signin_register.jpg";
 
 const Register = () => {
@@ -31,10 +32,12 @@ const Register = () => {
 
   return (
     <div className="fixed inset-0 w-screen h-screen flex items-center justify-center">
-      {/* Image Background */}
-      <img
-        src={DashboardImage}
-        alt="Dashboard Background"
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
         className="fixed inset-0 w-screen h-screen object-cover z-0"
         style={{
           width: '100vw',
@@ -43,9 +46,9 @@ const Register = () => {
           minHeight: '100%',
           objectFit: 'cover',
           overflow: 'hidden',
-          backgroundColor: 'black',
-          filter: 'blur(4px) brightness(0.7)'
+          backgroundColor: 'black'
         }}
+        src={VideoBackground}
       />
       
       {/* Overlay */}
