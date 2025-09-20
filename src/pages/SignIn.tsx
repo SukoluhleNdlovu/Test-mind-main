@@ -6,8 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 
-// Remove this line:
-// import DashboardBackground from "@/assets/Dashboard_background.mp4";
+import DashboardImage from "@/assets/dashboard.jpg";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -32,12 +31,10 @@ const SignIn = () => {
 
   return (
     <div className="fixed inset-0 w-screen h-screen flex items-center justify-center">
-      {/* Video Background */}
-      <video 
-        autoPlay
-        loop
-        muted
-        playsInline
+      {/* Image Background */}
+      <img
+        src={DashboardImage}
+        alt="Dashboard Background"
         className="fixed inset-0 w-screen h-screen object-cover z-0"
         style={{
           width: '100vw',
@@ -48,7 +45,6 @@ const SignIn = () => {
           overflow: 'hidden',
           backgroundColor: 'black'
         }}
-        src="https://videos.pexels.com/video-files/3129957/3129957-uhd_3840_2160_25fps.mp4"
       />
       
       {/* Dark Overlay */}
