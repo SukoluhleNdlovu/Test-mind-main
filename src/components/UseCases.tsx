@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { Heart, DollarSign, Gamepad2, ShoppingCart, GraduationCap } from "lucide-react";
 
@@ -59,6 +60,7 @@ const stats = [
 export const UseCases = () => {
   const { toast } = useToast();
   const [uploadsByCase, setUploadsByCase] = useState<Record<number, File[]>>({});
+  const navigate = useNavigate();
 
   const handleFilesSelected = (index: number, fileList: FileList | null) => {
     if (!fileList || fileList.length === 0) return;
@@ -132,7 +134,7 @@ export const UseCases = () => {
                   </div>
 
                   <div className="pt-4 border-t border-border/40">
-                    <Button size="sm" className="bg-primary w-full" onClick={() => window.location.assign("/test-configuration")}>
+                    <Button size="sm" className="bg-primary w-full" onClick={() => navigate("/test-configuration")}> 
                       Create Tests
                     </Button>
                   </div>
